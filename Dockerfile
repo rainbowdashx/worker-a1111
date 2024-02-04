@@ -25,7 +25,8 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
 
 
 
-COPY ./models/bnkmd8.safetensors /model.safetensors
+RUN apk add --no-cache wget && \
+    wget -q -O /model.safetensors https://civitai.com/api/download/models/293240
 
 
 
