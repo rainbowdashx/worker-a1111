@@ -56,10 +56,10 @@ def handler(event):
     This is the handler function that will be called by the serverless.
     '''
 
-    print("Received event: ", event)
-
-    if "slackerType" in  event and event["slackerType"] == "reactor":
-        json = run_reactor(event["input"])
+    if "slackerType" in  event["input"] and event["input"]["slackerType"] == "reactor":
+        print("Running Reactor... currently disabled.")
+        #json = run_reactor(event["input"])
+        return {"error": "Reactor is currently disabled."}
     else:
         json = run_inference(event["input"])
 
