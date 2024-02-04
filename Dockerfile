@@ -3,6 +3,8 @@
 # ---------------------------------------------------------------------------- #
 FROM alpine/git:2.36.2 as download
 
+ENV HF_TOKEN=${HF_TOKEN}
+
 COPY builder/clone.sh /clone.sh.x
 
 RUN tr -d '\r' < /clone.sh.x > /clone.sh && chmod +x /clone.sh
@@ -24,10 +26,8 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
     . /clone.sh generative-models https://github.com/Stability-AI/generative-models 45c443b316737a4ab6e40413d7794a7f5657c19f
 
 
-
 RUN apk add --no-cache wget && \
-    wget -q -O /model.safetensors https://civitai.com/api/download/models/272376
-
+    wget -q -O --header="Authorization: Bearer $HF_TOKEN" /model.safetensors https://huggingface.co/morf/autoelv/resolve/main/bnkreal.safetensors?download=true
 
 
 # ---------------------------------------------------------------------------- #
