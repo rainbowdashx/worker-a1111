@@ -3,8 +3,6 @@
 # ---------------------------------------------------------------------------- #
 FROM alpine/git:2.36.2 as download
 
-ENV HF_TOKEN=${HF_TOKEN}
-
 COPY builder/clone.sh /clone.sh.x
 
 RUN tr -d '\r' < /clone.sh.x > /clone.sh && chmod +x /clone.sh
@@ -27,7 +25,7 @@ RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f1
 
 
 RUN apk add --no-cache wget && \
-    wget -q -O --header="Authorization: Bearer $HF_TOKEN" /model.safetensors https://huggingface.co/morf/autoelv/resolve/main/bnkreal.safetensors?download=true
+    wget -q -O /model.safetensors https://huggingface.co/morf/autoelv/resolve/main/bnkreal.safetensors?download=true
 
 
 # ---------------------------------------------------------------------------- #
