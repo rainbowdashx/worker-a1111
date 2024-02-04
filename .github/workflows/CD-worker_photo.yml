@@ -21,8 +21,6 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-        with:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
@@ -35,3 +33,4 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_REPO }}/${{ secrets.DOCKERHUB_IMG }}:photo
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
