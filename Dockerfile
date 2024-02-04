@@ -9,19 +9,19 @@ RUN tr -d '\r' < /clone.sh.x > /clone.sh && chmod +x /clone.sh
 
 
 # Clone the repos and clean unnecessary files
-RUN . /clone.sh taming-transformers https://github.com/CompVis/taming-transformers.git 24268930bf1dce879235a7fddd0b2355b84d7ea6 && \
+RUN . /clone.sh taming-transformers https://github.com/CompVis/taming-transformers.git && \
     rm -rf data assets **/*.ipynb
 
-RUN . /clone.sh stable-diffusion-stability-ai https://github.com/Stability-AI/stablediffusion.git cf2772fab0af5573da775e7437e6acdca424f26e && \
+RUN . /clone.sh stable-diffusion-stability-ai https://github.com/Stability-AI/stablediffusion.git && \
     rm -rf assets data/**/*.png data/**/*.jpg data/**/*.gif
 
-RUN . /clone.sh CodeFormer https://github.com/sczhou/CodeFormer.git c5b4593074ba6214284d6acd5f1719b6c5d739af && \
+RUN . /clone.sh CodeFormer https://github.com/sczhou/CodeFormer.git && \
     rm -rf assets inputs
 
-RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git 48211a1594f1321b00f14c9f7a5b4813144b2fb9 && \
-    . /clone.sh k-diffusion https://github.com/crowsonkb/k-diffusion.git 5b3af030dd83e0297272d861c19477735d0317ec && \
-    . /clone.sh clip-interrogator https://github.com/pharmapsychotic/clip-interrogator 2486589f24165c8e3b303f84e9dbbea318df83e8 && \
-    . /clone.sh generative-models https://github.com/Stability-AI/generative-models 45c443b316737a4ab6e40413d7794a7f5657c19f
+RUN . /clone.sh BLIP https://github.com/salesforce/BLIP.git && \
+    . /clone.sh k-diffusion https://github.com/crowsonkb/k-diffusion.git && \
+    . /clone.sh clip-interrogator https://github.com/pharmapsychotic/clip-interrogator && \
+    . /clone.sh generative-models https://github.com/Stability-AI/generative-models
 
 
 
