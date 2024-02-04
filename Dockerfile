@@ -78,11 +78,6 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 ADD src .
 
-COPY models/inswapper_128.onnx /stable-diffusion-webui/models/insightface/inswapper_128.onnx
-
-RUN cd /stable-diffusion-webui/extensions && \
-    git clone https://github.com/Gourieff/sd-webui-reactor.git
-    
 COPY builder/cache.py /stable-diffusion-webui/cache.py
 RUN cd /stable-diffusion-webui && python cache.py --use-cpu=all --ckpt /model.safetensors
 
