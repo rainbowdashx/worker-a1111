@@ -33,4 +33,4 @@ jobs:
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_REPO }}/${{ secrets.DOCKERHUB_IMG }}:photo
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          build-args: HF_TOKEN=${{ secrets.HF_TOKEN }}
