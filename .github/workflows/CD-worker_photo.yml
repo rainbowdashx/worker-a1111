@@ -1,4 +1,4 @@
-name: CD | Dev Docker Image
+name: CD | Dev Docker Image Photo
 
 on:
   push:
